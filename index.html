@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Aetheria.Tech</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+  </head>
+  <body>
+    <div class="entrance-overlay"></div>
+
+    <div class="video-background fade-in">
+      <video
+        id="bgVideo"
+        autoplay
+        loop
+        muted
+        playsinline
+        preload="auto"
+        style="width: 100%; height: 100%; object-fit: cover"
+      >
+        <source src="Girlfloattest.mp4" type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+      <div class="video-overlay"></div>
+    </div>
+
+    <div class="site-title-container fade-in-delayed">
+      <div class="site-title">Aetheria</div>
+      <div class="ca-text">
+        CA: 8SinPTj5REhNAFjaKrsDgkeS5JoSd91y4aghEuxopump
+      </div>
+    </div>
+
+    <div class="content">
+      <div class="left-buttons fade-in-staggered">
+        <button
+          class="cyber-button"
+          onclick="window.open('https://dexscreener.com', '_blank')"
+        >
+          Chart
+        </button>
+        <button
+          class="cyber-button twitter"
+          onclick="window.open('https://x.com/AetheriaTech', '_blank')"
+        >
+          Twitter
+        </button>
+      </div>
+
+      <div class="right-panel fade-in-delayed">
+        <div class="market-cap-widget">
+          <div class="widget-header">SOLANA MARKET CAP</div>
+          <div class="widget-content">
+            <div class="market-data">
+              <div class="data-item">
+                <span class="label">Price:</span>
+                <span class="value" id="solPrice">--</span>
+              </div>
+              <div class="data-item">
+                <span class="label">24h Change:</span>
+                <span class="value" id="solChange">--</span>
+              </div>
+              <div class="data-item">
+                <span class="label">Market Cap:</span>
+                <span class="value" id="solMarketCap">--</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="chat-container">
+          <div class="chat-messages" id="chatMessages">
+            <!-- Messages will appear here -->
+          </div>
+          <div class="chat-input-container">
+            <input
+              type="text"
+              id="chatInput"
+              placeholder="Communicate with Reverie..."
+              autocomplete="off"
+            />
+            <button id="sendButton" class="cyber-button">Send</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      // Ensure video plays
+      document.addEventListener("DOMContentLoaded", function () {
+        const video = document.getElementById("bgVideo");
+        video.play().catch(function (error) {
+          console.log("Video play failed:", error);
+        });
+
+        // Remove entrance overlay after animation
+        setTimeout(() => {
+          document.querySelector(".entrance-overlay").style.opacity = "0";
+          setTimeout(() => {
+            document.querySelector(".entrance-overlay").style.display = "none";
+          }, 1000);
+        }, 500);
+
+        // Add staggered animation to buttons
+        const buttons = document.querySelectorAll(
+          ".left-buttons .cyber-button"
+        );
+        buttons.forEach((button, index) => {
+          button.style.animationDelay = `${1 + index * 0.2}s`;
+        });
+      });
+    </script>
+    <script src="script.js"></script>
+  </body>
+</html>
